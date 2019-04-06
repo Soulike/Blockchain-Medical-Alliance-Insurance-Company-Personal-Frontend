@@ -1,0 +1,32 @@
+.InsuranceList {
+
+    .carousel {
+        height: (660rem/24);
+    }
+
+    .contentWrapper {
+        padding: (90rem/24) (81rem/24);
+        max-width: 1920px;
+        margin: 0 auto;
+
+        .listWrapper {
+            margin: (-48rem/24) (-45rem/24);
+            margin-top: (38rem/24 - 48rem/24);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .insuranceWrapper {
+                margin: (48rem/24) (45rem/24);
+                width: (409rem/24);
+                box-sizing: content-box;
+
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                }
+            }
+        }
+    }
+}
