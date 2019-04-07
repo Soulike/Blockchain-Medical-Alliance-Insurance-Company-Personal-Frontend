@@ -12,13 +12,13 @@ class Header extends Component
             hasLoggedIn,
             insuranceUrl,
             insurancePurchasingUrl,
-            directPaymentUrl,
+            //directPaymentUrl,
             personalCenterUrl,
             signUpUrl,
             loginUrl,
             insuranceLinkIsActive,
             insurancePurchasingLinkIsActive,
-            directPaymentLinkIsActive,
+            //directPaymentLinkIsActive,
             personalCenterLinkIsActive,
         } = this.props;
         return (
@@ -36,9 +36,9 @@ class Header extends Component
                         <Link onlyActiveOnIndex={false}
                               className={`${Style.navItem} ${insurancePurchasingLinkIsActive ? Style.active : null}`}
                               to={insurancePurchasingUrl}>投保</Link>
-                        <Link onlyActiveOnIndex={false}
+                        {/*<Link onlyActiveOnIndex={false}
                               className={`${Style.navItem} ${directPaymentLinkIsActive ? Style.active : null}`}
-                              to={directPaymentUrl}>直付</Link>
+                              to={directPaymentUrl}>直付</Link>*/}
                     </nav>
                     <div className={Style.authControllerWrapper}>
                         {
