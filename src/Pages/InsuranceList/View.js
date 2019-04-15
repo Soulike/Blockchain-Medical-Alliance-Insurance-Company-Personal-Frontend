@@ -13,7 +13,7 @@ function InsuranceList(props)
     const {insuranceList} = props;
     return (
         <div className={Style.InsuranceList}>
-            <CarouselContainer shouldShowInsurancePublicationButton={true} className={Style.carousel} />
+            <CarouselContainer shouldShowInsurancePublicationButton={false} className={Style.carousel} />
             <div className={Style.contentWrapper}>
                 <InsuranceSelector />
                 <div className={Style.listWrapper}>
