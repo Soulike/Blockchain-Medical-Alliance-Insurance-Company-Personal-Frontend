@@ -1,5 +1,9 @@
 import React from 'react';
 import InsurancePolicyFilling from './View';
+import {PAGE_ID_TO_ROUTE, REGEX, REQUIRE_LOGIN_PAGE_ID} from '../../Config';
+import message from 'antd/lib/message';
+import Api from '../../Api';
+import {browserHistory} from 'react-router';
 
 class InsurancePolicyFillingContainer extends React.Component
 {
@@ -76,7 +80,54 @@ class InsurancePolicyFillingContainer extends React.Component
 
     onSubmit = async () =>
     {
+        const {
+            insuranceName,
+            insurancePurchaserName,
+            insurancePurchaserIdentificationNumber,
+            email,
+            insuredName,
+            insuredIsMale,
+            insuredIdentificationNumber,
+            insuredAge,
+        } = this.state;
 
+        if (!REGEX.INSURANCE_NAME.test(insuranceName))
+        {
+            message.warning('主险填写不正确');
+        }
+        else if (!REGEX.NAME.test(insurancePurchaserName))
+        {
+            message.warning('投保人姓名填写不正确');
+        }
+        else if (!REGEX.IDENTIFICATION_NUMBER.test(insurancePurchaserIdentificationNumber))
+        {
+            message.warning('投保人身份证号码填写不正确');
+        }
+        else if (!REGEX.EMAIL.test(email))
+        {
+            message.warning('联系邮箱填写不正确');
+        }
+        else if (!REGEX.NAME.test(insuredName))
+        {
+            message.warning('被保险人姓名填写不正确');
+        }
+        else if (!REGEX.IDENTIFICATION_NUMBER.test(insuredIdentificationNumber))
+        {
+            message.warning('被保险人身份证号码填写不正确');
+        }
+        else if (!REGEX.AGE.test(insuredAge.toString()) || insuredAge < 0 || insuredAge > 120)
+        {
+            message.warning('被保险人年龄填写不正确');
+        }
+        else
+        {
+            const requestIsSuccessful = await Api.sendPostSubmitInsurancePolicyFormRequestAsync(insuranceName, insurancePurchaserName, insurancePurchaserIdentificationNumber, email,
+                insuredName, insuredIsMale, insuredIdentificationNumber, insuredAge);
+            if (requestIsSuccessful)
+            {
+                browserHistory.push(PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_PERSONAL_INSURANCE_PURCHASING_PROCESS]);
+            }
+        }
     };
 
     render()

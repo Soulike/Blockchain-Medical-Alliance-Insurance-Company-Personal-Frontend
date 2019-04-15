@@ -9,7 +9,6 @@ export const REGEX = {
 
 
     INSURANCE_NAME: /^.+$/,
-    PERSON_NAME: /^.+$/,
     IDENTIFICATION_NUMBER: /^[0-9]{17}[0-9|X]$/,
 };
 

@@ -1,15 +1,15 @@
 import Function from '../../Function';
 import {STATUS_CODE} from '../../Constant';
 import message from 'antd/lib/message';
-import {INSURANCE_POLICY_FILLING} from './ROUTE';
+import {SUBMIT_INSURANCE_POLICY_FORM} from './ROUTE';
 import {Function as AuthProcessorFunction} from '../../Components/AuthProcessor';
 
-export async function sendGetInsurancePurchasingInfoListRequest(insuranceName, insurancePurchaserName, insurancePurchaserIdentificationNumber, email,
-                                                                insuredName, insuredIsMale, insuredIdentificationNumber, insuredAge)
+export async function sendPostSubmitInsurancePolicyFormRequestAsync(insuranceName, insurancePurchaserName, insurancePurchaserIdentificationNumber, email,
+                                                                    insuredName, insuredIsMale, insuredIdentificationNumber, insuredAge)
 {
     try
     {
-        const {code} = await Function.postAsync(INSURANCE_POLICY_FILLING, {
+        const {code} = await Function.postAsync(SUBMIT_INSURANCE_POLICY_FORM, {
             insuranceName,
             insurancePurchaserName,
             insurancePurchaserIdentificationNumber,

@@ -3,7 +3,9 @@ import Style from './Style.module.scss';
 import Input from 'antd/lib/input';
 import Button from 'antd/lib/button';
 import Radio from 'antd/lib/radio';
+import Tooltip from 'antd/lib/tooltip';
 import PropTypes from 'prop-types';
+import {REGEX_TEXT} from '../../Config';
 
 function InsurancePolicyFilling(props)
 {
@@ -46,9 +48,11 @@ function InsurancePolicyFilling(props)
                     </label>
                     <label className={Style.inputWrapper}>
                         <span className={Style.label}>投保人身份证号码：</span>
-                        <Input className={Style.input}
-                               onChange={onInsurancePurchaserIdentificationNumberInputChange}
-                               value={insurancePurchaserIdentificationNumber} />
+                        <Tooltip title={REGEX_TEXT.IDENTIFICATION_NUMBER}>
+                            <Input className={Style.input}
+                                   onChange={onInsurancePurchaserIdentificationNumberInputChange}
+                                   value={insurancePurchaserIdentificationNumber} />
+                        </Tooltip>
                     </label>
                     <label className={Style.inputWrapper}>
                         <span className={Style.label}>联系邮箱：</span>
@@ -69,19 +73,23 @@ function InsurancePolicyFilling(props)
                     </label>
                     <label className={Style.inputWrapper}>
                         <span className={Style.label}>被保险人身份证号码：</span>
-                        <Input className={Style.input}
-                               onChange={onInsuredIdentificationNumberInputChange}
-                               value={insuredIdentificationNumber} />
+                        <Tooltip title={REGEX_TEXT.IDENTIFICATION_NUMBER}>
+                            <Input className={Style.input}
+                                   onChange={onInsuredIdentificationNumberInputChange}
+                                   value={insuredIdentificationNumber} />
+                        </Tooltip>
                     </label>
                     <label className={Style.inputWrapper}>
                         <span className={Style.label}>被保险人年龄：</span>
-                        <Input className={Style.input}
-                               type={'number'}
-                               onChange={onInsuredAgeInputChange}
-                               value={insuredAge}
-                               min={0}
-                               max={100}
-                               step={1} />
+                        <Tooltip title={'请填写周岁'}>
+                            <Input className={Style.input}
+                                   type={'number'}
+                                   onChange={onInsuredAgeInputChange}
+                                   value={insuredAge}
+                                   min={0}
+                                   max={100}
+                                   step={1} />
+                        </Tooltip>
                     </label>
                 </div>
                 <div className={Style.submitButtonWrapper}>
@@ -104,7 +112,7 @@ InsurancePolicyFilling.propTypes = {
     onInsuredNameInputChange: PropTypes.func.isRequired,
     insuredName: PropTypes.string.isRequired,
     onInsuredIsMaleRadioChange: PropTypes.func.isRequired,
-    insuredIsMale: PropTypes.bool.isRequired,
+    insuredIsMale: PropTypes.oneOf([0, 1]).isRequired,
     onInsuredIdentificationNumberInputChange: PropTypes.func.isRequired,
     insuredIdentificationNumber: PropTypes.string.isRequired,
     onInsuredAgeInputChange: PropTypes.func.isRequired,
