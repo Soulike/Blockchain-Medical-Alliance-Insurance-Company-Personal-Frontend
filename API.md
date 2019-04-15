@@ -115,3 +115,100 @@
 }
 ```
 - 其他说明：无
+
+---
+
+### 投保信息列表部分（请求前缀为 `/insurancePurchasingProcess`）
+
+#### `/getInsurancePurchasingInfoList`（**有改动**）
+
+- 功能说明：获取投保人投保信息列表
+- 请求方法：GET
+- 请求体：无
+- 响应体：
+```js
+{
+    insurancePurchasingInfoList: [                  // 数组，内含多条投保信息
+        {
+            insurancePurchasingInfoId: String,      // 这条信息的唯一识别 ID
+            name: String,                           // 投保人姓名
+            age: Number,                            // 投保人年龄
+            isMale: Number,                         // 投保人是不是男性，0为女，1为男
+            healthState: String,                    // 投保人健康状况
+            publicKey: String,                      // 投保人公钥
+            insuranceType: String,                  // 保险类型
+            insurancePurchasingTime: String,        // 投保时间
+            insurancePeriod: String,                // 保险时长
+            insurancePrice: Number,                 // 保金，单位人民币元
+            insurancePurchasingStage: ENUM_NUMBER,  // 投保阶段，枚举值
+        },
+    ]
+}
+```
+- 其他说明
+  - 投保阶段枚举值
+```js
+{
+    APPLICATION: 0, // 投保人申请
+    INSURANCE_COMPANY_VERIFY: 1,      // 保险公司审核
+    PAY: 2,         // 投保人缴费，保险公司确认并发布保单
+    COMPLETE: 3,    // 完成
+    INSURANCE_COMPANY_VERIFY_DECLINED: -1,  // 保险公司审核未通过
+};
+```
+
+---
+
+### 投保详情部分（请求前缀为 `/insurancePurchasingDetail`
+
+#### `/getInsurancePurchasingInfo`（**有改动**）
+
+- 功能说明：获取投保详细信息
+- 请求方法：GET
+- 请求体：
+```js
+{
+    insurancePurchasingInfoId: String,  // 投保信息 ID
+}
+```
+- 响应体：
+```js
+{
+    insurancePurchasingInfoId: String,      // 这条信息的唯一识别 ID
+    name: String,                           // 投保人姓名
+    age: Number,                            // 投保人年龄
+    isMale: Number,                         // 投保人是不是男性，0为女，1为男
+    healthState: String,                    // 投保人健康状况
+    publicKey: String,                      // 投保人公钥
+    insuranceType: String,                  // 保险类型
+    insurancePurchasingTime: String,        // 投保时间
+    insurancePeriod: String,                // 保险时长
+    insurancePrice: Number,                 // 保金，单位人民币元
+    insurancePurchasingStage: ENUM_NUMBER,  // 投保阶段，枚举值
+}
+```
+- 其他说明：无
+
+---
+
+### 填写电子投保单部分（请求前缀为 `/insurancePolicyFilling`）
+
+#### `/submitInsurancePolicyForm`
+
+- 功能说明：提交电子投保单
+- 请求方法：POST
+- 请求体：
+```js
+{
+    insuranceName: String,                          // 主险
+    insurancePurchaserName: String,                 // 投保人姓名
+    insurancePurchaserIdentificationNumber: String, // 投保人身份证号
+    email: String,                                  // 联系邮箱
+    insuredName: String,                            // 被保险人姓名
+    insuredIsMale: Number,                          // 被保险人性别，0 或 1
+    insuredIdentificationNumber: String,            // 被保险人身份证号
+    insuredAge: Number,                             // 被保险人年龄
+}
+```
+- 响应体：无
+- 其他说明：无
