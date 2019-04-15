@@ -12,7 +12,7 @@ function InsurancePurchasingDetail(props)
     const stageTextArray = [...INSURANCE_PURCHASING_STAGE_ID_TO_TEXT];
     const {insurancePurchasingInfo} = props;
     const {
-        insurancePurchasingInfoId,
+        // insurancePurchasingInfoId,
         name,
         insurancePurchasingStage,
     } = insurancePurchasingInfo;
