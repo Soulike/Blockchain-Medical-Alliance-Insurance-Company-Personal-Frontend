@@ -7,6 +7,7 @@ import PersonalCenter from '../Pages/PersonalCenter';
 import InsurancePurchasingProcess from '../Pages/InsurancePurchasingProcess';
 import InsurancePurchasingDetail from '../Pages/InsurancePurchasingDetail';
 import InsurancePolicyFilling from '../Pages/InsurancePolicyFilling';
+import InsuranceDetail from '../Pages/InsuranceDetail';
 // 页面 View 从此导入
 
 // 页面对应的组件
@@ -21,4 +22,6 @@ export default {
     [NOT_REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_PERSONAL_LOGIN]: Login,
     [NOT_REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_PERSONAL_SIGN_UP]: SignUp,
     [REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_PERSONAL_INSURANCE_POLICY_FILLING]: InsurancePolicyFilling,
+    [REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_PERSONAL_INSURANCE_DETAIL]: InsuranceDetail,
+    [REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_PERSONAL_INSURANCE_CLAUSE]: null,
 };

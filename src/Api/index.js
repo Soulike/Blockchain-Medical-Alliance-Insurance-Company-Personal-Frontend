@@ -3,6 +3,7 @@ import InsuranceList from './InsuranceList';
 import InsurancePurchasingProcess from './InsurancePurchasingProcess';
 import InsurancePurchasingDetail from './InsurancePurchasingDetail';
 import InsurancePolicyFilling from './InsurancePolicyFilling';
+import InsuranceDetail from './InsuranceDetail';
 
 export default {
     ...Account,
@@ -10,4 +11,5 @@ export default {
     ...InsurancePurchasingProcess,
     ...InsurancePurchasingDetail,
     ...InsurancePolicyFilling,
+    ...InsuranceDetail,
 };

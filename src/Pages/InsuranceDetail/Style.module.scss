@@ -1,0 +1,77 @@
+.InsuranceDetail {
+    padding: (59rem/24) (110rem/24);
+    display: flex;
+    justify-content: center;
+
+    .insuranceDetailContainer {
+        width: (1700rem/24);
+        height: (750rem/24);
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+
+        .imageWrapper {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .image {
+                width: (488rem/24 * 1.15);
+                height: (564rem/24 * 1.15);
+            }
+        }
+
+        .infoWrapper {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .info {
+                width: 100%;
+                height: (669rem/24);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .insuranceNameWrapper {
+
+                    .insuranceName {
+                        font-size: (36rem/24);
+                        font-weight: bold;
+
+                        .icon {
+                            display: inline-block;
+                            margin-right: 0.5rem;
+                        }
+                    }
+                }
+
+                .itemWrapper {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .label {
+                        width: 20%;
+                    }
+
+                    .itemContent {
+                        width: 80%;
+
+                        .insurancePrice {
+                            font-size: (48rem/24);
+                            color: #DB4646;
+                        }
+                    }
+                }
+
+                .buttonWrapper {
+                    height: (60rem/24);
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

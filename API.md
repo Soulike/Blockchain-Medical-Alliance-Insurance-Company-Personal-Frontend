@@ -212,3 +212,34 @@
 ```
 - 响应体：无
 - 其他说明：无
+
+---
+
+### 保险详情部分（请求前缀为 `/insuranceDetail`）
+
+#### `/getInsuranceDetail`
+
+- 功能说明：根据 ID 获取对应保险的信息
+- 请求方法：GET
+- 请求体：
+```js
+{
+    insuranceId: String,    // 保险的 ID
+}
+```
+- 响应体：
+```js
+{
+    insuranceId: String,            // 保险的 ID
+    insuranceName: String,          // 保险的名字
+    isSpecialMedicalCare: Number,   // 是否是特殊医疗，0 或 1
+    hasSocialSecurity: Number,      // 有无社保，0 或 1
+    insuranceAmount: Number,        // 保额，单位是人民币元
+    insurancePeriod: String,        // 保险期限
+    insuranceDiseaseType: String,   // 保险病种
+    coveringAge: String,            // 承保年龄
+    salesArea: String,              // 销售区域
+    insurancePrice: Number,         // 保费价格，单位是人民币元
+}
+```
+- 其他说明：无
