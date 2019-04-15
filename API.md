@@ -243,3 +243,40 @@
 }
 ```
 - 其他说明：无
+
+---
+
+### 保险条款部分（请求前缀为 `/insuranceClause`）
+
+#### `/getInsuranceClauseInfo`
+
+- 功能说明：根据保险 ID 获得投保条款相关信息
+- 请求方法：GET
+- 请求体：
+```js
+{
+    insuranceId: String,
+}
+```
+- 响应体：
+```js
+{
+    insuranceName: String,      // 保险名
+    insuranceClause: String,    // 保险条款内容
+    insuranceNotice: String,    // 保险须知
+}
+```
+- 其他说明：无
+
+#### `/confirmInsurancePurchasingApplication`
+
+- 功能说明：根据保险 ID，确认为请求的用户创建投保申请
+- 请求方法：POST
+- 请求体：
+```js
+{
+    insuranceId: String,
+}
+```
+- 响应体：无
+- 其他说明：无

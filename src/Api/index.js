@@ -4,6 +4,7 @@ import InsurancePurchasingProcess from './InsurancePurchasingProcess';
 import InsurancePurchasingDetail from './InsurancePurchasingDetail';
 import InsurancePolicyFilling from './InsurancePolicyFilling';
 import InsuranceDetail from './InsuranceDetail';
+import InsuranceClause from './InsuranceClause';
 
 export default {
     ...Account,
@@ -12,4 +13,5 @@ export default {
     ...InsurancePurchasingDetail,
     ...InsurancePolicyFilling,
     ...InsuranceDetail,
+    ...InsuranceClause,
 };
