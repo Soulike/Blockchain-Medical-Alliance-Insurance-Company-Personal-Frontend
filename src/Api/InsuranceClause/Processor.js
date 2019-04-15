@@ -87,7 +87,7 @@ export async function sendPostConfirmInsurancePurchasingApplicationRequestAsync(
             }
             case STATUS_CODE.FORBIDDEN:
             {
-                message.error('投保操作被拒绝');
+                message.error('投保申请操作被拒绝');
                 return null;
             }
             case STATUS_CODE.NOT_FOUND:
@@ -107,7 +107,7 @@ export async function sendPostConfirmInsurancePurchasingApplicationRequestAsync(
             }
             default:
             {
-                message.error('未知原因的投保失败');
+                message.error('未知原因的投保申请失败');
                 return null;
             }
         }
