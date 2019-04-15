@@ -1,3 +1,45 @@
 .InsuranceClause {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    .content {
+        margin: (54rem/24) (117rem/24);
+        width: (1686rem/24);
+
+        .header {
+            background-color: #FFF;
+            width: 100%;
+            height: (81rem/24);
+            font-size: (36rem/24);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .clauseWrapper {
+            margin-top: (59rem/24);
+            width: 100%;
+            background-color: #FFF;
+            padding: 2.5rem 4rem;
+
+            .clause {
+                font-family: sans-serif;
+                max-height: (1000rem/24);
+                overflow: auto;
+                font-size: (28rem/24);
+            }
+
+            .buttonWrapper {
+                margin-top: 2rem;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+                .purchaseButton {
+                    font-size: (28rem/24);
+                }
+            }
+        }
+    }
 }

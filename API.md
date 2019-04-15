@@ -243,3 +243,26 @@
 }
 ```
 - 其他说明：无
+
+---
+
+### 保险条款部分（请求前缀为 `/insuranceClause`）
+
+#### `/getInsuranceClause`
+
+- 功能说明：根据保险 ID 获得保险条款
+- 请求方法：GET
+- 请求体：
+```js
+{
+    insuranceId: String,
+}
+```
+- 响应体：
+```js
+{
+    insuranceName: String,      // 保险名
+    insuranceClause: String,    // 保险条款内容
+}
+```
+- 其他说明：无
