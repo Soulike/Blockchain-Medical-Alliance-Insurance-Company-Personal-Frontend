@@ -21,15 +21,18 @@ function InsuranceClause(props)
                             <Skeleton active={true} />
                     }
                     <div className={Style.buttonWrapper}>
-                        <Button type={'primary'} size={'large'} className={Style.purchaseButton} disabled={!hasGotData}>
-                            <Icon type="plus-circle" theme="filled" onClick={onAgreeClick} />
+                        <Button type={'primary'}
+                                size={'large'}
+                                className={Style.purchaseButton}
+                                disabled={!hasGotData}
+                                onClick={onAgreeClick}>
+                            <Icon type="plus-circle" theme="filled" />
                             立即购买
                         </Button>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        </div>);
 }
 
 InsuranceClause.propTypes = {
