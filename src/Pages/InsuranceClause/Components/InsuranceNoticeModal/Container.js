@@ -11,9 +11,9 @@ class InsuranceNoticeModalContainer extends React.Component
 {
     onAccept = () =>
     {
-        const {hideModal} = this.props;
+        const {hideModal, insuranceId} = this.props;
         hideModal(MODAL_ID.INSURANCE_NOTICE_MODAL);
-        browserHistory.push(PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_PERSONAL_INSURANCE_POLICY_FILLING]);
+        browserHistory.push(`${PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_PERSONAL_INSURANCE_POLICY_FILLING]}?insuranceId=${insuranceId}`);
     };
 
     render()
@@ -26,6 +26,7 @@ class InsuranceNoticeModalContainer extends React.Component
 }
 
 InsuranceNoticeModalContainer.propTypes = {
+    insuranceId: PropTypes.string.isRequired,
     insuranceNotice: PropTypes.string.isRequired,
     hasGotData: PropTypes.bool.isRequired,
 };

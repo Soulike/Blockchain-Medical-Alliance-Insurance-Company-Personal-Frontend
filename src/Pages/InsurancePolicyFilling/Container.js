@@ -11,6 +11,7 @@ class InsurancePolicyFillingContainer extends React.Component
     {
         super(props);
         this.state = {
+            insuranceId: '',
             insuranceName: '',
             insurancePurchaserName: '',
             insurancePurchaserIdentificationNumber: '',
@@ -19,14 +20,37 @@ class InsurancePolicyFillingContainer extends React.Component
             insuredIsMale: 1,
             insuredIdentificationNumber: '',
             insuredAge: 0,
+
+            hasGotData: false,
         };
     }
 
-    onInsuranceNameInputChange = e =>
+    componentDidMount()
     {
-        this.setState({
-            insuranceName: e.target.value,
-        });
+        const {insuranceId} = this.props.location.query;
+        if (insuranceId === undefined)
+        {
+            browserHistory.push(PAGE_ID_TO_ROUTE[REQUIRE_LOGIN_PAGE_ID.INSURANCE_COMPANY_PERSONAL_INSURANCE_LIST]);
+        }
+        else
+        {
+            Api.sendGetInsuranceDetailRequestAsync(insuranceId)
+                .then(insuranceDetail =>
+                {
+                    if (insuranceDetail)
+                    {
+                        this.setState({
+                            ...insuranceDetail,
+                            hasGotData: true,
+                        });
+                    }
+                });
+        }
+    }
+
+    onInsuranceNameInputChange = () =>
+    {
+        return false;
     };
 
     onInsurancePurchaserNameInputChange = e =>
@@ -81,7 +105,7 @@ class InsurancePolicyFillingContainer extends React.Component
     onSubmit = async () =>
     {
         const {
-            insuranceName,
+            insuranceId,
             insurancePurchaserName,
             insurancePurchaserIdentificationNumber,
             email,
@@ -91,11 +115,7 @@ class InsurancePolicyFillingContainer extends React.Component
             insuredAge,
         } = this.state;
 
-        if (!REGEX.INSURANCE_NAME.test(insuranceName))
-        {
-            message.warning('主险填写不正确');
-        }
-        else if (!REGEX.NAME.test(insurancePurchaserName))
+        if (!REGEX.NAME.test(insurancePurchaserName))
         {
             message.warning('投保人姓名填写不正确');
         }
@@ -121,7 +141,7 @@ class InsurancePolicyFillingContainer extends React.Component
         }
         else
         {
-            const requestIsSuccessful = await Api.sendPostSubmitInsurancePolicyFormRequestAsync(insuranceName, insurancePurchaserName, insurancePurchaserIdentificationNumber, email,
+            const requestIsSuccessful = await Api.sendPostSubmitInsurancePolicyFormRequestAsync(insuranceId, insurancePurchaserName, insurancePurchaserIdentificationNumber, email,
                 insuredName, insuredIsMale, insuredIdentificationNumber, insuredAge);
             if (requestIsSuccessful)
             {
@@ -141,6 +161,7 @@ class InsurancePolicyFillingContainer extends React.Component
             insuredIsMale,
             insuredIdentificationNumber,
             insuredAge,
+            hasGotData,
         } = this.state;
         return (
             <InsurancePolicyFilling onInsuranceNameInputChange={this.onInsuranceNameInputChange}
@@ -159,6 +180,7 @@ class InsurancePolicyFillingContainer extends React.Component
                                     insuredIdentificationNumber={insuredIdentificationNumber}
                                     onInsuredAgeInputChange={this.onInsuredAgeInputChange}
                                     insuredAge={insuredAge}
+                                    hasGotData={hasGotData}
                                     onSubmit={this.onSubmit} />
         );
     }

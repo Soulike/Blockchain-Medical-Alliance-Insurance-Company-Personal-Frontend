@@ -200,7 +200,7 @@
 - 请求体：
 ```js
 {
-    insuranceName: String,                          // 主险
+    insuranceId: String,                            // 保险 ID
     insurancePurchaserName: String,                 // 投保人姓名
     insurancePurchaserIdentificationNumber: String, // 投保人身份证号
     email: String,                                  // 联系邮箱
@@ -248,7 +248,7 @@
 
 ### 保险条款部分（请求前缀为 `/insuranceClause`）
 
-#### `/getInsuranceClauseInfo`
+#### `/getInsuranceClauseInfo`(目前未实现)
 
 - 功能说明：根据保险 ID 获得投保条款相关信息
 - 请求方法：GET

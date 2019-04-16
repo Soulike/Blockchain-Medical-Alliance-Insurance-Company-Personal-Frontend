@@ -66,6 +66,7 @@ class InsuranceClauseContainer extends React.Component
                              onAgreeClick={this.onAgreeClick}
                              hasGotData={hasGotData} />,
             <InsuranceNoticeModal key={MODAL_ID.INSURANCE_NOTICE_MODAL}
+                                  insuranceId={insuranceId}
                                   hasGotData={hasGotData}
                                   insuranceNotice={insuranceNotice} />,
         ];
