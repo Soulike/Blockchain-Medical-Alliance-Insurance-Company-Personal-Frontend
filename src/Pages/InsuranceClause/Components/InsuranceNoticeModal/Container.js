@@ -32,7 +32,7 @@ InsuranceNoticeModalContainer.propTypes = {
 };
 
 const mapDispatchToProps = {
-    hideModal: ModalActions.hideModalAction(),
+    hideModal: ModalActions.hideModalAction,
 };
 
 export default connect(null, mapDispatchToProps)(InsuranceNoticeModalContainer);
