@@ -4,20 +4,22 @@ import message from 'antd/lib/message';
 import {SUBMIT_INSURANCE_POLICY_FORM} from './ROUTE';
 import {Function as AuthProcessorFunction} from '../../Components/AuthProcessor';
 
-export async function sendPostSubmitInsurancePolicyFormRequestAsync(insuranceId, insurancePurchaserName, insurancePurchaserIdentificationNumber, email,
-                                                                    insuredName, insuredIsMale, insuredIdentificationNumber, insuredAge)
+export async function sendPostSubmitInsurancePolicyFormRequestAsync(insuranceId,
+                                                                    insurancePurchaserName,
+                                                                    isMale,
+                                                                    age,
+                                                                    healthState,
+                                                                    publicKey)
 {
     try
     {
         const {code} = await Function.postAsync(SUBMIT_INSURANCE_POLICY_FORM, {
             insuranceId,
             insurancePurchaserName,
-            insurancePurchaserIdentificationNumber,
-            email,
-            insuredName,
-            insuredIsMale,
-            insuredIdentificationNumber,
-            insuredAge,
+            isMale,
+            age,
+            healthState,
+            publicKey,
         });
         switch (code)
         {
