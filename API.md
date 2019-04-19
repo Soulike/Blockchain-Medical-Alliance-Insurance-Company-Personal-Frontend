@@ -200,14 +200,12 @@
 - 请求体：
 ```js
 {
-    insuranceId: String,                            // 保险 ID
-    insurancePurchaserName: String,                 // 投保人姓名
-    insurancePurchaserIdentificationNumber: String, // 投保人身份证号
-    email: String,                                  // 联系邮箱
-    insuredName: String,                            // 被保险人姓名
-    insuredIsMale: Number,                          // 被保险人性别，0 或 1
-    insuredIdentificationNumber: String,            // 被保险人身份证号
-    insuredAge: Number,                             // 被保险人年龄
+    insuranceId: String,                // 保险 ID
+    insurancePurchaserName: String,     // 投保人姓名
+    isMale: Number,                     // 投保人性别，0或1
+    age: Number                         // 投保人年龄
+    healthState: String,                // 投保人健康状况
+    publicKey: String,                  // 投保人公钥
 }
 ```
 - 响应体：无

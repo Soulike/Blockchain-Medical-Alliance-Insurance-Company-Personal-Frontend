@@ -10,6 +10,9 @@ export const REGEX = {
 
     INSURANCE_NAME: /^.+$/,
     IDENTIFICATION_NUMBER: /^[0-9]{17}[0-9|X]$/,
+
+    PUBLIC_KEY: /^[0-9a-z]{130}$/,
+    HEALTH_STATE: /^.+$/,
 };
 
 export const REGEX_TEXT = {
