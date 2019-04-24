@@ -1,0 +1,64 @@
+.InsurancePolicyFilling {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: (70rem/24) (160rem/24);
+
+    .insurancePolicyFillingContent {
+        background-color: #FFF;
+        width: (1600rem/24);
+        height: (798rem/24);
+        box-shadow: 0 0 (6rem/24) #CCC;
+
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            background-color: #438AFF;
+            color: #FFF;
+            font-size: (36rem/24);
+            width: 100%;
+            height: (90rem/24);
+        }
+
+        .form {
+            height: ((798rem - 90rem - 150rem)/24);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            align-content: space-around;
+            flex-wrap: wrap;
+
+            .inputWrapper {
+                margin: (60rem/24) 0;
+                width: (680rem/24);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .label {
+                    font-size: (28rem/24);
+                }
+
+                .input {
+                    width: (400rem/24);
+                }
+            }
+        }
+
+        .submitButtonWrapper {
+            height: (150rem/24);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .submitButton {
+                width: (400rem/24);
+                height: (60rem/24);
+                font-size: (28rem/24);
+            }
+        }
+    }
+}

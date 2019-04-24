@@ -9,15 +9,14 @@ export const REGEX = {
 
 
     INSURANCE_NAME: /^.+$/,
-    INSURANCE_AMOUNT: /^\d+(?:.\d{0,2})?$/,
-    INSURANCE_PERIOD: /^.+$/,
-    INSURANCE_DISEASE_TYPE: /^.+$/,
-    COVERING_AGE: /^.+$/,
-    SALES_AREA: /^.+$/,
-    INSURANCE_PRICE: /^\d+(?:.\d{0,2})?$/,
+    IDENTIFICATION_NUMBER: /^[0-9]{17}[0-9|X]$/,
+
+    PUBLIC_KEY: /^[0-9a-z]{130}$/,
+    HEALTH_STATE: /^.+$/,
 };
 
 export const REGEX_TEXT = {
     USERNAME: '5~20位的字母、数字或下划线',
     PASSWORD: '10位以上的字母、数字或下划线',
+    IDENTIFICATION_NUMBER: '18 位身份证号，末位字母请大写',
 };
