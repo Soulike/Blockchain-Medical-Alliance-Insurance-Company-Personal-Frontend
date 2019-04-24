@@ -17,7 +17,7 @@ const initValues = {
         stageId: INSURANCE_PURCHASING_STAGE_ID.DEVELOPMENT.ALL_STAGES,  // 筛选器阶段
     },
     InsurancePurchasingDetail: {
-        /*insurancePurchasingInfo: {
+        insurancePurchasingInfo: {/*
             insurancePurchasingInfoId: 'aaaa',      // 这条信息的唯一识别 ID
             name: '啊啊啊',                           // 投保人姓名
             age: 1,                            // 投保人年龄
@@ -31,7 +31,8 @@ const initValues = {
             insurancePurchasingStage: INSURANCE_PURCHASING_STAGE_ID.DECLINE.INSURANCE_COMPANY_VERIFY_DECLINED,  // 投保阶段，枚举值
             responsiblePersonId: 1,            // 负责人 ID，用于获取负责人信息
             responsiblePersonName: 'String',          // 负责人姓名
-        },*/
+        */
+        },
     },
     Modal: {
         currentVisibleModalIdSet: new Set(),
