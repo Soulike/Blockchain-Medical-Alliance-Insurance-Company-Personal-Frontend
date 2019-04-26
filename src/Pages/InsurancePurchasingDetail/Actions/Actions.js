@@ -31,3 +31,10 @@ function getInsurancePurchasingInfoFailedAction()
         type: ACTION_TYPE.GET_INSURANCE_PURCHASING_INFO_FAILED,
     };
 }
+
+export function clearInsurancePurchasingInfoAction()
+{
+    return {
+        type: ACTION_TYPE.CLEAR_INSURANCE_PURCHASING_INFO,
+    };
+}

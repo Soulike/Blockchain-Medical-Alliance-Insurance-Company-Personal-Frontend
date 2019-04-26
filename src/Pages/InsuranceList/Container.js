@@ -9,6 +9,7 @@ class InsuranceListContainer extends React.Component
         super(props);
         this.state = {
             insuranceList: [],
+            hasGotData: false,
         };
     }
 
@@ -22,6 +23,7 @@ class InsuranceListContainer extends React.Component
                     const {insuranceList} = insuranceListWrapper;
                     this.setState({
                         insuranceList,
+                        hasGotData: true,
                     });
                 }
             });
@@ -29,8 +31,8 @@ class InsuranceListContainer extends React.Component
 
     render()
     {
-        const {insuranceList} = this.state;
-        return <InsuranceList insuranceList={insuranceList} />;
+        const {insuranceList, hasGotData} = this.state;
+        return <InsuranceList insuranceList={insuranceList} hasGotData={hasGotData} />;
     }
 }
 

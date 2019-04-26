@@ -14,6 +14,7 @@ class InsurancePurchasingProcessContainer extends React.Component
         this.state = {
             insurancePurchasingInfoList: [],
             insurancePurchasingInfoId: null,    // 如果这个 state 存在，那么只显示这一条信息且隐藏选择器
+            hasGotData: false,
         };
     }
 
@@ -57,6 +58,7 @@ class InsurancePurchasingProcessContainer extends React.Component
                     const {insurancePurchasingInfoList} = insurancePurchasingInfoListWrapper;
                     this.setState({
                         insurancePurchasingInfoList,
+                        hasGotData: true,
                     });
                 }
             });
@@ -69,13 +71,14 @@ class InsurancePurchasingProcessContainer extends React.Component
 
     render()
     {
-        const {insurancePurchasingInfoList, insurancePurchasingInfoId} = this.state;
+        const {insurancePurchasingInfoList, insurancePurchasingInfoId, hasGotData} = this.state;
         const {ageRange, stageId} = this.props;
         return <InsurancePurchasingProcess insurancePurchasingInfoList={insurancePurchasingInfoList}
                                            ageRange={ageRange}
                                            stageId={stageId}
                                            onRowClick={this.onRowClick}
-                                           insurancePurchasingInfoId={insurancePurchasingInfoId} />;
+                                           insurancePurchasingInfoId={insurancePurchasingInfoId}
+                                           hasGotData={hasGotData} />;
     }
 }
 
