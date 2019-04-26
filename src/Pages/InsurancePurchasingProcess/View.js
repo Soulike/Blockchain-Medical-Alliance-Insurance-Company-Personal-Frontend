@@ -10,7 +10,7 @@ import Tooltip from 'antd/lib/tooltip';
 
 function InsurancePurchasingProcess(props)
 {
-    const {insurancePurchasingInfoList, ageRange: [minAge, maxAge], stageId, onRowClick, insurancePurchasingInfoId: onlyInsurancePurchasingInfoId} = props;
+    const {insurancePurchasingInfoList, ageRange: [minAge, maxAge], stageId, onRowClick, insurancePurchasingInfoId: onlyInsurancePurchasingInfoId, hasGotData} = props;
 
     const columns = [
         {
@@ -176,6 +176,7 @@ function InsurancePurchasingProcess(props)
                        columns={columns}
                        className={Style.processTable}
                        rowClassName={Style.row}
+                       loading={!hasGotData}
                        onRow={record =>
                        {
                            return {
@@ -200,6 +201,11 @@ InsurancePurchasingProcess.propTypes = {
     stageId: PropTypes.oneOf([...Object.values(INSURANCE_PURCHASING_STAGE_ID.NORMAL), ...Object.values(INSURANCE_PURCHASING_STAGE_ID.DECLINE), ...Object.values(INSURANCE_PURCHASING_STAGE_ID.DEVELOPMENT)]).isRequired,
     onRowClick: PropTypes.func.isRequired,
     insurancePurchasingInfoId: PropTypes.string,    // 如果这个 Prop 存在，那么只显示这一条信息且隐藏选择器
+    hasGotData: PropTypes.bool,
+};
+
+InsurancePurchasingProcess.defaultProps = {
+    hasGotData: true,
 };
 
 export default InsurancePurchasingProcess;

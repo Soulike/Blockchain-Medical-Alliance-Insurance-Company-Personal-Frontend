@@ -1,7 +1,7 @@
 import React from 'react';
 import {browserHistory, withRouter} from 'react-router';
 import {PAGE_ID_TO_ROUTE, REQUIRE_LOGIN_PAGE_ID} from '../../Config';
-import {getInsurancePurchasingInfoAction} from './Actions/Actions';
+import {clearInsurancePurchasingInfoAction, getInsurancePurchasingInfoAction} from './Actions/Actions';
 import {connect} from 'react-redux';
 import InsurancePurchasingDetail from './View';
 
@@ -21,6 +21,11 @@ class InsurancePurchasingDetailContainer extends React.Component
         }
     }
 
+    componentWillUnmount()
+    {
+        const {clearInsurancePurchasingInfo} = this.props;
+        clearInsurancePurchasingInfo();
+    }
 
     render()
     {
@@ -39,6 +44,7 @@ const mapStateToProps = state =>
 
 const mapDispatchToProps = {
     getInsurancePurchasingInfo: getInsurancePurchasingInfoAction,
+    clearInsurancePurchasingInfo: clearInsurancePurchasingInfoAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(InsurancePurchasingDetailContainer));

@@ -13,6 +13,13 @@ export default (state = {}, action) =>
                 insurancePurchasingInfo,
             };
         }
+        case ACTION_TYPE.CLEAR_INSURANCE_PURCHASING_INFO:
+        {
+            return {
+                ...state,
+                insurancePurchasingInfo: {},
+            };
+        }
         case ACTION_TYPE.GET_INSURANCE_PURCHASING_INFO_FAILED:
         default:
         {
